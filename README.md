@@ -3,7 +3,8 @@
 - Là một cơ chế lending giúp người vay có thể chọn khoảng giá của tài sản thế chấp để giảm thiểu rủi ro thanh lý khi giá của collateral giảm xuống.
 - Người vay khi vay một lượng token sẽ được phép chọn một khoảng giá `[A; B]` nào đó
 - Cũng giống style UniswapV3 thì LLAMMA cũng có khái niệm ticks và bands giống vậy, user cũng được phép chọn số lượng band
-- số lượng tài sản thế chấp họ đặt sẽ được chia đều vào các band `[L1, R1], [L2, R2], ... [Ln, Rn], R[i] = L[i+1] ,với i < n`
+- Trong LLAMMA, các bands đã được xác định trước theo một lưới giá cố định, nhưng người dùng vẫn có thể chọn số lượng bands khi mở khoản vay. Điều này khác với Uniswap V3, nơi tick spacing cố định nhưng LPs có thể chọn bất kỳ khoảng nào để cung cấp thanh khoản.
+- He thong se chon n bands gan gia thi truong cua collateral (n do nguoi dung chon)
 - Khi giá của collateral giảm dần đến ngưỡng < B LLAMMA sẽ lần lượt thanh lý số collateral ở từng band bằng cách bán chúng đổi lấy BORROW_COIN => Giảm thiểu rủi ro cho người vay, khi giá xuống còn < A thì bất kỳ ai cũng có thể thanh lý khoàn vay của user
 - Nếu giá hiện tại là X':
   - Nếu X' > B && HF < 1: Bất kỳ ai cũng có thể thanh lý, nhưng LLAMMA sẽ không thanh lý cho đến khi giá <= B.
