@@ -15,10 +15,16 @@
   - Nếu `Pcur < Li` thì toàn bộ collateral đã bị bán
 
 ## Swap trong LLAMMA
-- Swap từ `stablecoin` sang `collateral`: lấy collateral từ band cao nhất trước
-- Swap từ `collateral` sang `stablecoin`: lấy stablecoin từ band thấp nhất trước
+- Swap từ `stablecoin` sang `collateral`: lấy collateral từ band cao nhất trước(trong các band của các người vay) theo giá trong band
+- Swap từ `collateral` sang `stablecoin`: lấy stablecoin từ band thấp nhất trước(trong các band của các người vay) theo giá trong band
+- Nếu các band giao nhau thì phân chia theo tỉ lệ sở hữu
 
 ## Vay thêm
 
  
 ## Công thức
+
+
+## Note
+- `active_band`: band giá hiện tại mà giá hiện tại thuộc vào.
+  - xác định bằng cách lấy band giá nhơ hơn gần nhất mà  <= giá hiện tại trong AMM, nếu không có band nào thấp hơn thì chọn band cao hơn gần nhất (theo đầu L)
